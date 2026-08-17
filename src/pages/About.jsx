@@ -7,9 +7,8 @@ export default function About() {
       <div className="about-split">
         <div className="about-img-side">
           <img 
-            src={`${import.meta.env.BASE_URL}images/CheeseCakeBerries.jpg`} 
-            alt="Cheesecake with berries" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+             src={`${window.location.origin}/My-bakery-webapp-main/images/CheeseCakeBerries.jpg`} 
+             alt="Cheesecake with berries" 
           />
         </div>
         <div className="about-text-side">
