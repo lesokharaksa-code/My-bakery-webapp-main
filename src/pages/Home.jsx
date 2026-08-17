@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  // Safe helper function to resolve public assets for GitHub Pages
-  const getAssetPath = (path) => {
-    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    const base = import.meta.env.BASE_URL || '/';
-    return `${base}${cleanPath}`;
-  };
-
   const heroImages = [
     'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1400',
     'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1400',
@@ -246,7 +239,7 @@ export default function Home() {
           {/* Main Hero Card with Motion */}
           <div className="card-motion" style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', minHeight: '420px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '2.5rem', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
             <img 
-              src={getAssetPath('images/BrownBread.jpg')} 
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000" 
               alt="Brown Bread" 
               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} 
             />
@@ -267,7 +260,7 @@ export default function Home() {
             
             <div className="card-motion" style={{ display: 'flex', gap: '1.2rem', backgroundColor: '#fff', padding: '1.2rem', borderRadius: '16px', border: '1px solid #EFEAE3', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
               <img 
-                src={getAssetPath('images/Croissant.jpg')} 
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600" 
                 alt="Croissant" 
                 style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '12px' }} 
               />
@@ -286,7 +279,7 @@ export default function Home() {
 
             <div className="card-motion" style={{ display: 'flex', gap: '1.2rem', backgroundColor: '#fff', padding: '1.2rem', borderRadius: '16px', border: '1px solid #EFEAE3', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
               <img 
-                src={getAssetPath('images/Affogato.jpg')} 
+                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600" 
                 alt="Affogato" 
                 style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '12px' }} 
               />
