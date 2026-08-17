@@ -5,7 +5,13 @@ export default function About() {
   return (
     <div id="about">
       <div className="about-split">
-        <div className="about-img-side"><img src="images/CheeseCakeBerries.jpg" alt="Our bakery" /></div>
+        <div className="about-img-side">
+          <img 
+            src={`${import.meta.env.BASE_URL}images/CheeseCakeBerries.jpg`} 
+            alt="Cheesecake with berries" 
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+          />
+        </div>
         <div className="about-text-side">
           <div className="eyebrow">Our Story</div>
           <div className="sec-title">A Bakery Born<br /><em>from Passion</em></div>
