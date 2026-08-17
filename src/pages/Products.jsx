@@ -3,9 +3,6 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 import { useCart } from '../context/CartContext';
 
-// Dynamically import all images from src/assets/images/
-const assetImages = import.meta.glob('../assets/images/**/*', { eager: true, import: 'default' });
-
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,21 +38,20 @@ export default function Products() {
     fetchProducts();
   }, []);
 
-  // Helper function to match image path to src/assets/images/
+  // Helper function to correctly resolve image paths for GitHub Pages subpath
   const resolveImage = (path) => {
     if (!path) return '';
+    
     // If it's already an external URL (like Unsplash), return as is
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
     }
+    
+    // Clean up leading slashes or 'images/' prefix
     const cleanPath = path.replace(/^\/+/, '').replace(/^images\//, '');
     
-    for (const key in assetImages) {
-      if (key.includes(cleanPath)) {
-        return assetImages[key];
-      }
-    }
-    return path; 
+    // Prefix with Vite's BASE_URL so it correctly resolves to /My-bakery-webapp-main/images/...
+    return `${import.meta.env.BASE_URL}images/${cleanPath}`;
   };
 
   const handleAddToCart = (product) => {
